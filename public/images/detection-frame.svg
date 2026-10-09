@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-label="Simulated camera view of a rural road at dusk with a cow near the lane, used to demonstrate the detection interface">
+  <defs>
+    <linearGradient id="csky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0C1622"/>
+      <stop offset="0.7" stop-color="#15273C"/>
+      <stop offset="1" stop-color="#2A2B20"/>
+    </linearGradient>
+    <linearGradient id="cground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F1A28"/>
+      <stop offset="1" stop-color="#0B1320"/>
+    </linearGradient>
+    <linearGradient id="croad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16202E"/>
+      <stop offset="1" stop-color="#212D3E"/>
+    </linearGradient>
+    <radialGradient id="cvig" cx="0.5" cy="0.5" r="0.72">
+      <stop offset="0.6" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.5"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="960" height="300" fill="url(#csky)"/>
+  <path d="M0 292 L140 274 L300 288 L470 270 L640 288 L800 274 L960 290 L960 302 L0 302 Z" fill="#0D1725"/>
+  <rect y="296" width="960" height="304" fill="url(#cground)"/>
+
+  <!-- Road (slight perspective) -->
+  <path d="M330 296 L640 296 L900 600 L60 600 Z" fill="url(#croad)"/>
+  <path d="M330 296 L336 296 L64 600 L48 600 Z" fill="#F5F7FA" opacity="0.32"/>
+  <path d="M634 296 L640 296 L912 600 L896 600 Z" fill="#F5F7FA" opacity="0.32"/>
+  <g fill="#F5F7FA" opacity="0.4">
+    <rect x="472" y="560" width="10" height="40" rx="2"/>
+    <rect x="480" y="466" width="7" height="24" rx="1.6"/>
+    <rect x="484" y="404" width="5" height="14" rx="1.2"/>
+    <rect x="486" y="358" width="3.6" height="9" rx="1"/>
+  </g>
+
+  <!-- Fence line on the left -->
+  <g fill="#0A1119">
+    <rect x="96" y="470" width="7" height="60" rx="2"/>
+    <rect x="206" y="398" width="6" height="46" rx="1.8"/>
+    <rect x="284" y="352" width="5" height="34" rx="1.4"/>
+  </g>
+  <g stroke="#0A1119" stroke-width="2.4" opacity="0.9">
+    <path d="M99 486 L289 364"/>
+    <path d="M99 502 L289 378"/>
+  </g>
+
+  <!-- Shrubs -->
+  <g fill="#0A1119">
+    <ellipse cx="760" cy="470" rx="34" ry="12"/>
+    <ellipse cx="836" cy="530" rx="44" ry="15"/>
+    <ellipse cx="140" cy="560" rx="40" ry="14"/>
+  </g>
+
+  <!-- Cow crossing near the lane (subject of the simulated detection) -->
+  <g transform="translate(368 330) scale(1.42)" fill="#05080D">
+    <ellipse cx="72" cy="54" rx="46" ry="21"/>
+    <path d="M30 62 h6 v42 h-6 Z"/>
+    <path d="M41 64 h6 v40 h-6 Z"/>
+    <path d="M97 64 h6 v40 h-6 Z"/>
+    <path d="M108 62 h6 v42 h-6 Z"/>
+    <path d="M106 42 L130 30 L138 42 L114 56 Z"/>
+    <ellipse cx="137" cy="38" rx="13" ry="8" transform="rotate(10 137 38)"/>
+    <ellipse cx="148" cy="44" rx="7" ry="5" transform="rotate(10 148 44)"/>
+    <path d="M128 28 C124 20 126 14 130 12" stroke="#05080D" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <path d="M138 28 C142 21 141 15 137 12" stroke="#05080D" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <path d="M28 44 C20 56 22 70 19 78" stroke="#05080D" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Second animal further away -->
+  <g transform="translate(668 300) scale(0.62)" fill="#05080D">
+    <ellipse cx="72" cy="54" rx="45" ry="20"/>
+    <path d="M32 62 h6 v38 h-6 Z"/>
+    <path d="M43 63 h6 v37 h-6 Z"/>
+    <path d="M96 63 h6 v37 h-6 Z"/>
+    <path d="M107 62 h6 v38 h-6 Z"/>
+    <path d="M105 43 L128 32 L136 43 L112 56 Z"/>
+    <ellipse cx="135" cy="39" rx="12" ry="7.5" transform="rotate(8 135 39)"/>
+    <ellipse cx="146" cy="44" rx="6.4" ry="4.6"/>
+  </g>
+
+  <!-- Faint sensor scan lines -->
+  <g stroke="#8EA5BE" stroke-width="1" opacity="0.05">
+    <path d="M0 120 H960"/>
+    <path d="M0 240 H960"/>
+    <path d="M0 360 H960"/>
+    <path d="M0 480 H960"/>
+    <path d="M240 0 V600"/>
+    <path d="M480 0 V600"/>
+    <path d="M720 0 V600"/>
+  </g>
+
+  <rect width="960" height="600" fill="url(#cvig)"/>
+</svg>

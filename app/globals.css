@@ -1,0 +1,388 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   QORGAU Design System
+   Palette: navy surfaces, safety amber accents, light gray canvas.
+   ========================================================================== */
+
+@theme {
+  --color-navy: #101c2c; /* Primary Navy — header, footer, hero */
+  --color-navy-2: #17283f; /* Secondary Navy — panels on navy */
+  --color-panel: #0b1421; /* Deep Panel — dashboard sidebar, dark showcase */
+  --color-amber: #f5a623; /* Safety Amber — CTAs, warnings, accents */
+  --color-amber-hover: #e39412;
+  --color-canvas: #f5f7fa; /* Light Background — page sections */
+  --color-surface: #ffffff; /* White Surface — cards, forms */
+  --color-ink: #182230; /* Primary Text */
+  --color-ink-soft: #657386; /* Secondary Text */
+  --color-line: #dce3eb; /* Border */
+  --color-success: #237a57; /* Success Green — verified operational states */
+  --color-danger: #d64545; /* Warning Red — critical warnings, errors */
+  --color-steel: #8ea5be; /* Muted Blue — metadata on dark surfaces */
+
+  --font-display: var(--font-manrope), "Manrope", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 12px;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0.1, 1);
+}
+
+/* ---------- Base ---------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+::selection {
+  background: rgba(245, 166, 35, 0.28);
+}
+
+/* Consistent, visible focus indicator for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Layout helpers ---------- */
+
+.container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 48px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-page {
+    padding-inline: 64px;
+  }
+}
+
+/* ---------- Typography helpers ---------- */
+
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+}
+
+.text-page {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(30px, 3.6vw, 42px);
+  line-height: 1.12;
+}
+
+.text-section {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 2.8vw, 34px);
+  line-height: 1.18;
+}
+
+.text-card {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.text-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 11px 20px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: background-color 180ms var(--ease-standard),
+    border-color 180ms var(--ease-standard), color 180ms var(--ease-standard),
+    transform 180ms var(--ease-standard), box-shadow 180ms var(--ease-standard);
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--color-amber);
+  color: var(--color-navy);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-amber-hover);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-line);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--color-ink-soft);
+  background: rgba(24, 34, 48, 0.03);
+}
+
+.btn-on-dark {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.btn-on-dark:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- Surfaces ---------- */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(16, 28, 44, 0.04),
+    0 8px 24px -16px rgba(16, 28, 44, 0.18);
+}
+
+.card-hover {
+  transition: border-color 180ms var(--ease-standard),
+    box-shadow 180ms var(--ease-standard), transform 180ms var(--ease-standard);
+}
+
+.card-hover:hover {
+  border-color: #c6d2df;
+  box-shadow: 0 2px 4px rgba(16, 28, 44, 0.05),
+    0 16px 32px -20px rgba(16, 28, 44, 0.28);
+  transform: translateY(-2px);
+}
+
+/* ---------- Forms ---------- */
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 6px;
+}
+
+.field-input {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  background: var(--color-surface);
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  transition: border-color 160ms var(--ease-standard),
+    box-shadow 160ms var(--ease-standard);
+  min-height: 44px;
+}
+
+.field-input::placeholder {
+  color: #97a5b5;
+}
+
+.field-input:hover:not(:disabled) {
+  border-color: #c1ccd9;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--color-amber);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.18);
+}
+
+.field-input:disabled {
+  background: #f1f4f8;
+  color: var(--color-ink-soft);
+  cursor: not-allowed;
+}
+
+.field-input[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+.field-input[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.16);
+}
+
+.field-error {
+  display: block;
+  margin-top: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-danger);
+}
+
+/* ---------- Status indicators ---------- */
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  flex: none;
+}
+
+.pulse-amber {
+  animation: pulse-amber 2.4s var(--ease-standard) infinite;
+}
+
+@keyframes pulse-amber {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(245, 166, 35, 0);
+  }
+}
+
+/* ---------- Motion ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 500ms var(--ease-standard),
+    transform 500ms var(--ease-standard);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  border: 2px solid rgba(16, 28, 44, 0.25);
+  border-top-color: var(--color-navy);
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Leaflet overrides (professional, restrained) ---------- */
+
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #e9eef4;
+  font-size: 13px;
+}
+
+.leaflet-control-attribution {
+  font-size: 11px;
+  color: var(--color-ink-soft);
+  background: rgba(255, 255, 255, 0.82) !important;
+}
+
+.leaflet-control-zoom a {
+  color: var(--color-ink) !important;
+  border-color: var(--color-line) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  border: 1px solid var(--color-line);
+  box-shadow: 0 12px 32px -16px rgba(16, 28, 44, 0.4);
+  padding: 0;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+  line-height: 1.5;
+  min-width: 208px;
+}
+
+.leaflet-popup-tip {
+  box-shadow: none;
+  border: 1px solid var(--color-line);
+}
+
+/* Thin scrollbar for dashboard panels */
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: #c9d4e0;
+  border-radius: 8px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
